@@ -1,0 +1,36 @@
+#include <iostream>
+#include <limits>  // For std::numeric_limits
+#include <string>  // For std::string
+
+int main() {
+    std::cout << "code c++" << std::endl;
+
+    int quantity;
+    std::cout << "Enter the quantity: ";
+    while (true) {
+        std::cin >> quantity;
+        
+        if (std::cin.fail() || quantity <= 0) {
+            std::cin.clear();  // Clear error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore invalid input
+            std::cout << "Invalid input. Please enter a valid positive number for quantity: ";
+        } else {
+            break;  // Exit loop if input is valid
+        }
+    }
+
+    std::cout << "You entered quantity: " << quantity << std::endl;
+
+    // Clear the input buffer before taking the next string input
+    std::cin.ignore(); 
+
+    // Get the item name
+    std::string item;
+    std::cout << "Enter the item name: ";
+    std::getline(std::cin, item);  // Get item name
+
+    // Add the item 'quantity' times
+    std::cout << "You have added " << quantity << " " << item << "(s) to your list." << std::endl;
+
+    return 0;
+}
