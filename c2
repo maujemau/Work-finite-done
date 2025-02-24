@@ -1,0 +1,59 @@
+#include <tensorflow/cc/client/client_session.h>
+#include <tensorflow/cc/ops/standard_ops.h>
+#include <tensorflow/core/framework/tensor.h>
+#include <tensorflow/core/public/session.h>
+#include <iostream>
+
+int main() {
+    // Initialize TensorFlow session
+    tensorflow::Session* session;
+    tensorflow::SessionOptions options;
+    tensorflow::Status status = tensorflow::NewSession(options, &session);
+
+    if (!status.ok()) {
+        std::cerr << "Error creating session: " << status.ToString() << std::endl;
+        return -1;
+    }
+
+    // Load the pre-trained model
+    tensorflow::GraphDef graph_def;
+    status = tensorflow::ReadBinaryProto(tensorflow::Env::Default(), "model.pb", &graph_def);
+
+    if (!status.ok()) {
+        std::cerr << "Error loading model: " << status.ToString() << std::endl;
+        return -1;
+    }
+
+    status = session->Create(graph_def);
+    if (!status.ok()) {
+        std::cerr << "Error creating graph: " << status.ToString() << std::endl;
+        return -1;
+    }
+
+    // Create input tensor
+    tensorflow::Tensor input_tensor(tensorflow::DT_FLOAT, tensorflow::TensorShape({1, 10}));
+    auto input_matrix = input_tensor.matrix<float>();
+    for (int i = 0; i < 10; ++i) {
+        input_matrix(0, i) = static_cast<float>(i);
+    }
+
+    // Run inference
+    std::vector<std::pair<std::string, tensorflow::Tensor>> inputs = {{"input_layer", input_tensor}};
+    std::vector<tensorflow::Tensor> outputs;
+    status = session->Run(inputs, {"output_layer"}, {}, &outputs);
+
+    if (!status.ok()) {
+        std::cerr << "Error during inference: " << status.ToString() << std::endl;
+        return -1;
+    }
+
+    // Print output
+    auto output_matrix = outputs[0].matrix<float>();
+    std::cout << "Model Prediction: " << output_matrix(0, 0) << std::endl;
+
+    // Clean up
+    session->Close();
+    delete session;
+    
+    return 0;
+}
