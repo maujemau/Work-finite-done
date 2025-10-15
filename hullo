@@ -1,0 +1,8 @@
+Create	std::string s = "hi";	store text
+Concatenate	s += " there";	join strings
+Access	s[0]	get 'h'
+Compare	if (s == "hi")	check equality
+Substring	s.substr(0, 2)	"hi"
+Length	s.size() or s.length()	number of chars
+Clear	s.clear()	make empty
+Iterate	for (char c : s)	loop through chars
