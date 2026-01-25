@@ -3,3 +3,110 @@ Y
 2x+xy+33+(p+x) xy
 
 (3)
+
+
+.termux/files/usr/var/run"
+declare -x TRFONTS="/data/data/com.termux/files/usr/share/groff/site-font/devps"
+u0_a335@localhost ~ $ nano post.cpp
+u0_a335@localhost ~ $ clang++ post.cpp -o post
+u0_a335@localhost ~ $ ./pin.sh
+u0_a335@localhost ~ $ ./sss.sh
+./sss.sh: line 1: ftb: command not found
+Can't load /data/data/com.termux/files/usr/etc/samba/smb.conf - run testparm to debug it
+Invalid command: net console
+Usage:
+net rpc             Run functions using RPC transport
+net rap             Run functions using RAP transport
+net ads             Run functions using ADS transport
+net file            Functions on remote opened files
+net share           Functions on shares
+net session         Manage sessions
+net server          List servers in workgroup
+net domain          List domains/workgroups on network
+net printq          Modify printer queue
+net user            Manage users
+net group           Manage groups
+net groupmap        Manage group mappings
+net sam             Functions on the SAM database
+net validate        Validate username and password
+net groupmember     Modify group memberships
+net admin           Execute remote command on a remote OS/2 server
+net service         List/modify running services
+net password        Change user password on target server
+net primarytrust    Run functions related to the primary workstation trust.
+net changetrustpw   Change the trust password
+net changesecretpw  Change the secret password
+net setauthuser     Set the winbind auth user
+net getauthuser     Get the winbind auth user settings
+net time            Show/set time
+net lookup          Look up host names/IP addresses
+net g_lock          Manipulate the global lock table
+net join            Join a domain/AD
+net offlinejoin     Perform offline domain join
+net dom             Join/unjoin (remote) machines to/from a domain/AD
+net cache           Operate on the cache tdb file
+net getlocalsid     Get the SID for the local domain
+net setlocalsid     Set the SID for the local domain
+net setdomainsid    Set domain SID on member servers
+net getdomainsid    Get domain SID on member servers
+net maxrid          Display the maximum RID currently used
+net idmap           IDmap functions
+net status          Display server status
+net usershare       Manage user-modifiable shares
+net usersidlist     Display list of all users with SID
+net conf            Manage Samba registry based configuration
+net registry        Manage the Samba registry
+net eventlog        Process Win32 *.evt eventlog files
+net printing        Process tdb printer files
+net serverid        Manage the serverid tdb
+net notify          notifyd client code
+net tdb             Show information from tdb records
+net vfs             Filesystem operation through the VFS stack
+net help            Print usage information
+cc: error: no such file or directory: 'fs'
+cc: error: no such file or directory: 'dddght'
+Cannot open netlink socket: Permission denied
+Cannot open netlink socket: Permission denied
+Cannot open netlink socket: Permission denied
+Cannot open netlink socket: Permission denied
+Cannot open netlink socket: Permission denied
+Cannot open netlink socket: Permission denied
+Cannot open netlink socket: Permission denied
+Cannot open netlink socket: Permission denied
+Netid State Recv-Q Send-Q  Local Address:Port   Peer Address:Port
+u0_a335@localhost ~ $ c
+The program c is not installed. Install it by executing:
+ pkg install c-script
+u0_a335@localhost ~ $ pa
+No command pa found, did you mean:
+ Command pr in package coreutils
+ Command pl in package libgnustep-base
+ Command pp in package nss-utils
+ Command pb in package pb
+ Command ps in package procps
+ Command pd in package proot-distro
+ Command pv in package pv
+ Command pt in package tcllib
+ Command pm in package termux-tools
+ Command ya in package yazi
+u0_a335@localhost ~ $ pm
+cmd: Failure calling service package: Failed transaction (2147483646)
+u0_a335@localhost ~ $
+
+#include <iostream>
+#include <thread>
+
+void command() {
+    for (int i = 45; i < 54; i++) {
+        std::cout << i << std::endl;
+    }
+}
+
+int main() {
+    std::cout << "fixtures" << std::endl;
+
+    std::thread t(command); // start thread
+    t.join();               // wait for it
+
+    return 0;
+}
